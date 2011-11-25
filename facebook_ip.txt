@@ -1,0 +1,97 @@
+--------- new ---------
+69.171.224.41 upload.facebook.com
+69.171.224.41 www.facebook.com
+69.171.224.41 facebook.com
+69.171.224.41 logins.facebook.com
+69.171.224.41 www.logins.facebook.com
+69.171.224.41 login.facebook.com
+69.171.224.41 www.login.facebook.com
+69.171.224.41 connect.facebook.com
+69.171.224.41 www.connect.facebook.com
+69.171.224.41 developers.facebook.com
+69.171.224.41 error.facebook.com
+69.171.224.41 register.facebook.com
+69.171.224.41 apps.facebook.com
+69.171.224.41 www.apps.facebook.com
+69.171.224.41 graph.facebook.com
+69.171.224.41 static.ak.connect.facebook.com
+69.171.224.41 upload.facebook.com
+69.171.224.41 vupload.facebook.com
+69.171.224.41 pixel.facebook.com
+
+
+
+
+
+60.254.175.42 facebook.com
+60.254.175.42 www.facebook.com
+60.254.175.42 register.facebook.com
+60.254.175.42 www.logins.facebook.com
+60.254.175.42 blog.facebook.com
+60.254.175.42 logins.facebook.com
+60.254.175.42 login.facebook.com
+60.254.175.42 apps.facebook.com
+153.16.15.71 upload.facebook.com
+60.254.175.42 graph.facebook.com
+60.254.175.42 profile.ak.fbcdn.net
+60.254.175.42 photos-a.ak.fbcdn.net
+60.254.175.42 photos-b.ak.fbcdn.net
+60.254.175.42 photos-c.ak.fbcdn.net
+60.254.175.42 photos-d.ak.fbcdn.net
+60.254.175.42 photos-e.ak.fbcdn.net
+60.254.175.42 photos-f.ak.fbcdn.net
+60.254.175.42 photos-g.ak.fbcdn.net
+60.254.175.42 photos-h.ak.fbcdn.net
+60.254.175.42 static.ak.connect.facebook.com
+60.254.175.42 static.ak.fbcdn.net
+60.254.175.42 b.static.ak.fbcdn.net
+60.254.175.42 error.facebook.com
+60.254.175.42 developers.facebook.com
+60.254.175.42 pixel.facebook.com
+60.254.175.42 api.facebook.com
+60.254.175.42 chanel.facebook.com
+60.254.175.42 0.50.chanel.facebook.com
+60.254.175.42 external.ak.fbcdn.net
+60.254.175.42 profile.ak.fbcdn.net
+60.254.175.42 creative.ak.fbcdn.net
+60.254.175.42 chat.facebook.com
+60.254.175.42 vupload.facebook.com
+60.254.175.42 secure.facebook.com
+60.254.175.42 connect.facebook.com
+60.254.175.42 channel.facebook.com
+
+
+---- old -----
+
+96.17.180.162 www.facebook.com
+96.17.180.162 www.login.facebook.com
+96.17.180.162 facebook.com
+96.17.180.162 login.facebook.com
+96.17.180.162 apps.facebook.com
+96.17.180.162 upload.facebook.com
+96.17.180.162 vupload.facebook.com
+96.17.180.162 www.upload.facebook.com
+96.17.180.162 graph.facebook.com
+96.17.180.162 register.facebook.com
+96.17.180.162 vi-vn.connect.facebook.com
+96.17.180.162 vi-vn.facebook.com
+96.17.180.162 static.ak.connect.facebook.com
+96.17.180.162 developers.facebook.com
+96.17.180.162 error.facebook.com
+96.17.180.162 channel.facebook.com
+96.17.180.162 register.facebook.com
+96.17.180.162 bigzipfiles.facebook.com
+96.17.180.162 pixel.facebook.com
+96.17.180.162 register.facebook.com
+96.17.180.162 bigzipfiles.facebook.com
+96.17.180.162 pixel.facebook.com
+
+96.17.180.162 profile.ak.fbcdn.net
+96.17.180.162 static.ak.fbcdn.net
+96.17.180.162 external.ak.fbcdn.net
+96.17.180.162 1.226.channel.facebook.com
+
+96.17.180.162 photos-b.ak.fbcdn.net
+
+
+Add more text to file
