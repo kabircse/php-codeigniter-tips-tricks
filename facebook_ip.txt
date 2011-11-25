@@ -92,6 +92,3 @@
 96.17.180.162 1.226.channel.facebook.com
 
 96.17.180.162 photos-b.ak.fbcdn.net
-
-
-Add more text to file
