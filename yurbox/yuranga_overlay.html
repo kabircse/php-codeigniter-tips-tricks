@@ -1,53 +1,63 @@
 <html>
-	<head><title>Yuranga-overlay</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-	function show_overlay(){
-    
-	    var wh = $(window).height();
-	    var ww = $(window).width();
-	    var dh = $(document).height();
-	    var dw = $(document).width();
+    <head><title>Yuranga-overlay</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            function show_overlay() {
 
-	    var h = (wh > dh) ? wh : dh;
-	    var w = (ww > dw) ? ww : dw;
+                var wh = $(window).height();
+                var ww = $(window).width();
+                var dh = $(document).height();
+                var dw = $(document).width();
 
-	    var str = '<div id="div-processing" style="position:absolute;top:0;left:0;background-color:#000;opacity:0.8;z-index:9999;opacity:.60;filter: alpha(opacity=60);width:'+w+'px;height:'+h+'px">';
-	    str += '<center><img src="<?=base_url()?>application/assets/images/loadingAnimation.gif" style="padding-top:'+((h-60)/2)+'px;" /></center>';
-	    str += '</div>';
-	    $('body').append(str);
-	}
-	</script>
-	</head>
-	<body>
-	<div class="page_content">
-		
-		<h1>Built for Git. Focused on the Enterprise.</h1>
+                var h = (wh > dh) ? wh : dh;
+                var w = (ww > dw) ? ww : dw;
+                //style="width:' + w + 'px;height:' + h + 'px"
+                var overlay_html = '<div id="div-processing" class="overlay">\
+                            <div class="overlay_loading"></div></div>';
+                 $(overlay_html).width(w).height(h).appendTo('body');
+                //$('body').append(str);
+            }
+        </script>
+        <style type="text/css">
+            .overlay {
+                position:absolute;top:0;left:0;background-color:#000;opacity:0.8;z-index:9999;opacity:.60;filter: alpha(opacity=60);
+            }
+            .overlay_loading {
+                width: 100%;
+                height: 100%;
+                background: transparent url('http://iis.yurtest.net/application/assets/images/loadingAnimation.gif') no-repeat center center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page_content">
 
-		<p>Git helps more developers today 'get in the zone' and drive faster code velocity for both themselves and their teammates. Yet enterprises have been hesitant about making the switch to Git because they needed a better way to administer and manage Git on their own infrastructure. So we built Stash: Git repository management for enterprise teams.
+            <h1>Built for Git. Focused on the Enterprise.</h1>
 
-		Explore 5 ways Stash helps enterprise teams leverage the power of Git.</p>
-		
-		<h1>Built for Git. Focused on the Enterprise.</h1> <p>
+            <p>Git helps more developers today 'get in the zone' and drive faster code velocity for both themselves and their teammates. Yet enterprises have been hesitant about making the switch to Git because they needed a better way to administer and manage Git on their own infrastructure. So we built Stash: Git repository management for enterprise teams.
 
-		Git helps more developers today 'get in the zone' and drive faster code velocity for both themselves and their teammates. Yet enterprises have been hesitant about making the switch to Git because they needed a better way to administer and manage Git on their own infrastructure. So we built Stash: Git repository management for enterprise teams.
+                Explore 5 ways Stash helps enterprise teams leverage the power of Git.</p>
 
-		Explore 5 ways Stash helps enterprise teams leverage the power of Git.
-		Built for Git. Focused on the Enterprise.
+            <h1>Built for Git. Focused on the Enterprise.</h1> <p>
 
-		Git helps more developers today 'get in the zone' and drive faster code velocity for both themselves and their teammates. Yet enterprises have been hesitant about making the switch to Git because they needed a better way to administer and manage Git on their own infrastructure. So we built Stash: Git repository management for enterprise teams.
+                Git helps more developers today 'get in the zone' and drive faster code velocity for both themselves and their teammates. Yet enterprises have been hesitant about making the switch to Git because they needed a better way to administer and manage Git on their own infrastructure. So we built Stash: Git repository management for enterprise teams.
 
-		Explore 5 ways Stash helps enterprise teams leverage the power of Git. </p>
-		
-		<h3>Fits into any enterprise environment</h3> <p> Stash doesn’t force you to use  a pre-packaged appliance you don’t have any control over – it runs
-on your servers. Built with infrastructure flexibility needs in mind, administrators  have full control over how Stash fits into their environment including
-database, operating system and authentication (such as HTTPS/SSH) </p>
-		
-		
-		
-	</div>
-	<a href="javascript:show_overlay();">Show overlay</a>
-	
-	</body>
-	</html>
+                Explore 5 ways Stash helps enterprise teams leverage the power of Git.
+                Built for Git. Focused on the Enterprise.
+
+                Git helps more developers today 'get in the zone' and drive faster code velocity for both themselves and their teammates. Yet enterprises have been hesitant about making the switch to Git because they needed a better way to administer and manage Git on their own infrastructure. So we built Stash: Git repository management for enterprise teams.
+
+                Explore 5 ways Stash helps enterprise teams leverage the power of Git. </p>
+
+            <h3>Fits into any enterprise environment</h3> <p> Stash doesn’t force you to use  a pre-packaged appliance you don’t have any control over – it runs
+                on your servers. Built with infrastructure flexibility needs in mind, administrators  have full control over how Stash fits into their environment including
+                database, operating system and authentication (such as HTTPS/SSH) </p>
+
+
+
+        </div>
+        <a href="javascript:show_overlay();">Show overlay</a>
+
+    </body>
+</html>
