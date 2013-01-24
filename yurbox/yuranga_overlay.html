@@ -1,0 +1,48 @@
+<html>
+	<head><title>Yuranga-overlay</title>
+	<script type="text/javascript">
+	function show_overlay(){
+    
+	    var wh = $(window).height();
+	    var ww = $(window).width();
+	    var dh = $(document).height();
+	    var dw = $(document).width();
+
+	    var h = (wh > dh) ? wh : dh;
+	    var w = (ww > dw) ? ww : dw;
+
+	    var str = '<div id="div-processing" style="position:absolute;top:0;left:0;background-color:#000;opacity:0.8;z-index:9999;opacity:.60;filter: alpha(opacity=60);width:'+w+'px;height:'+h+'px">';
+	    str += '<center><img src="<?=base_url()?>application/assets/images/loadingAnimation.gif" style="padding-top:'+((h-60)/2)+'px;" /></center>';
+	    str += '</div>';
+	    $('body').append(str);
+	}
+	</script>
+	</head>
+	<body>
+	<div class="page_content">
+		
+		<h1>Built for Git. Focused on the Enterprise.</h1>
+
+		<p>Git helps more developers today 'get in the zone' and drive faster code velocity for both themselves and their teammates. Yet enterprises have been hesitant about making the switch to Git because they needed a better way to administer and manage Git on their own infrastructure. So we built Stash: Git repository management for enterprise teams.
+
+		Explore 5 ways Stash helps enterprise teams leverage the power of Git.</p>
+		
+		<h1>Built for Git. Focused on the Enterprise.</h1> <p>
+
+		Git helps more developers today 'get in the zone' and drive faster code velocity for both themselves and their teammates. Yet enterprises have been hesitant about making the switch to Git because they needed a better way to administer and manage Git on their own infrastructure. So we built Stash: Git repository management for enterprise teams.
+
+		Explore 5 ways Stash helps enterprise teams leverage the power of Git.
+		Built for Git. Focused on the Enterprise.
+
+		Git helps more developers today 'get in the zone' and drive faster code velocity for both themselves and their teammates. Yet enterprises have been hesitant about making the switch to Git because they needed a better way to administer and manage Git on their own infrastructure. So we built Stash: Git repository management for enterprise teams.
+
+		Explore 5 ways Stash helps enterprise teams leverage the power of Git.
+	</p>
+		
+		
+		
+	</div>
+	<a href="javascript:show_overlay();">Show overlay</a>
+	
+	</body>
+	</html>
