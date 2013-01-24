@@ -1,0 +1,27 @@
+// Textmate tips
+http://tm2tips.tumblr.com/
+// Textmate autocompete
+esc //nopopup
+esc + option => popup & hint
+//Textmate Bundles
+/Users/<yourname>/Library/Application Support/Textmate/Managed/Bundles/,
+// comment in Textmate
+Cmd-/ (Comment Line) and Opt-Cmd-/ (Insert Code Block)
+// duplicate line in Textmate
+Ctrl+Shilf+D
+// Delete current line
+Ctrl+Shilf+K
+// move line up/down
+Command + Up/Down
+// select all text within matched pairs
+Shilf + Command + B
+// Tab in textmate
+Command + [ OR ] OR Alt+Tab
+//go to beginning of line or end of line
+Ctr+e, a || Command + Left, Right
+// view list of functions and go to a function detail
+Shift + Command + t
+
+// list shortcut
+http://www.keyxl.com/aaa4933/380/Textmate-keyboard-shortcuts.htm
+http://blog.ardes.com/2008/10/15/textmate-cheat-sheet-by-instalments-a-beginner-s-take

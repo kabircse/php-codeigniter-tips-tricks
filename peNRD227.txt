@@ -1,0 +1,5 @@
+ADD PATH IN WINDOWS
+add path allows you run some application or batch from command line
+
+System Properties > Advance > Environment Variables --> System Variables, PATH -> EDIT This Add your path
+Old_config + ;C:\wamp\bin\php\php5.2.5\

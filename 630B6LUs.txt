@@ -1,0 +1,38 @@
+ RewriteEngine on
+
+RewriteBase /
+
+# Redirect all domain name variations to main site
+RewriteCond %{HTTP_HOST} ^site.com [NC]
+RewriteRule ^(.*)$ http://www.site.com/$1 [L,R=301]
+
+# Force checkout to be secure
+RewriteCond %{SERVER_PORT} 80
+RewriteCond $1 !^(index\.php|images|javascripts|site|admin|stylesheets|robots\.txt)
+RewriteRule /checkout(.*)$ https://www.site/checkout$1 [L]
+
+# Force admin to be secure
+RewriteCond %{SERVER_PORT} 80
+RewriteCond $1 !^(index\.php|images|javascripts|site|checkout|stylesheets|robots\.txt)
+RewriteRule /admin(.*)$ https://www.site.com/admin$1 [L]
+
+# Flip back to http unless in checkout or admin
+RewriteCond %{SERVER_PORT} !80
+RewriteCond $1 !^(index\.php|images|javascripts|checkout|admin|stylesheets|robots\.txt)
+RewriteRule ^(.*)$ http://www.site.com/$1 [L]
+
+# Get CodeIgniter going
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1  
+
+
+#I think, instead of
+
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#you should have something like
+
+RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#do have the rewrite rule match. Your link is currently produced by the third rule.
