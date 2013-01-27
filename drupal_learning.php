@@ -92,3 +92,28 @@ function format_plural($count, $singular, $plural, $args = array(), $langcode = 
     }
   }
 }
+
+function drupal_add_css($path = NULL, $type = 'module', $media = 'all', $preprocess = TRUE) {
+  static $css = array();
+  global $language;
+
+  // Create an array of CSS files for each media type first, since each type needs to be served
+  // to the browser differently.
+  if (isset($path)) {
+    // This check is necessary to ensure proper cascading of styles and is faster than an asort().
+    if (!isset($css[$media])) {
+      $css[$media] = array('module' => array(), 'theme' => array());
+    }
+    $css[$media][$type][$path] = $preprocess;
+
+    // If the current language is RTL, add the CSS file with RTL overrides.
+    if ($language->direction == LANGUAGE_RTL) {
+      $rtl_path = str_replace('.css', '-rtl.css', $path);
+      if (file_exists($rtl_path)) {
+        $css[$media][$type][$rtl_path] = $preprocess;
+      }
+    }
+  }
+
+  return $css;
+}
