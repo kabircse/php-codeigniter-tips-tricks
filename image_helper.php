@@ -1,3 +1,4 @@
+<?php
 // SOURCE URL
 // http://jrtashjian.com/2009/02/image-thumbnail-creation-caching-with-codeigniter/
 
