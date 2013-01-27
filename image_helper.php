@@ -1,3 +1,6 @@
+// SOURCE URL
+// http://jrtashjian.com/2009/02/image-thumbnail-creation-caching-with-codeigniter/
+
 function image_thumb($image_path, $height, $width)
 {
     // Get the CodeIgniter super object
