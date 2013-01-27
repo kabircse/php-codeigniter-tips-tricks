@@ -13,3 +13,7 @@ $content = $this->_ci->load->view('active_view', $data, TRUE);
 $output = $this->load->template($default_template_file, array('content' => $content), TRUE);
 
 $this->_ci->ouput->content = $output;
+
+$var = "this is a really long variable and I'd rather have it " .
+ "span over multiple lines for readability sake. God it's so hot in here " .
+ "can someone turn on the A/C?";
