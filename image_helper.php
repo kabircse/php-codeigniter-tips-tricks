@@ -4,6 +4,7 @@ function image_thumb($image_path, $height, $width)
     $CI =& get_instance();
 
     // Path to image thumbnail
+    // Maybe we should get image name, image extension for right extension and $rawname . '_' . $height . '_' . $withd . '.jpg';
     $image_thumb = dirname($image_path) . '/' . $height . '_' . $width . '.jpg';
 
     if( ! file_exists($image_thumb))
