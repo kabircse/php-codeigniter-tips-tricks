@@ -1,7 +1,8 @@
+<?php
 $this->db->last_query();
 $this->db->insert_string();
 $this->db->update_string();
-$this->CI->db->queries
+$this->CI->db->queries;
 #MySQL statement in the query
 $this -> db -> set('created_date', 'NOW()', FALSE);
 $this->db->set('received_qty', 'received_qty + 1', FALSE);
@@ -64,5 +65,9 @@ $this->db->join('users', 'places.place_id = user.place_id', 'right');
 $this->db->join('users', 'places.place_id = user.place_id', 'inner');
 $this->db->join('members', "members.id = $user_id", 'left outer');
 
-//result to array
+// RETRIVE DATA IN CODEIGNITER
+//-----------------------------------------------------------------------------+
 return $query->result_array();
+$query->result_object();
+$this->db->limit(1)->where('field_name', 'field_value')->get('table_name')->row();
+//-----------------------------------------------------------------------------+
