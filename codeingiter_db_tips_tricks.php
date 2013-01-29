@@ -71,3 +71,18 @@ return $query->result_array();
 $query->result_object();
 $this->db->limit(1)->where('field_name', 'field_value')->get('table_name')->row();
 //-----------------------------------------------------------------------------+
+
+// COUNT DATA IN TABLE 
+$this->db->count_all_results();
+
+//Permits you to determine the number of rows in a particular Active Record query. 
+//Queries will accept Active Record restrictors such as where(), or_where(), like(), or_like(), etc. Example:
+echo $this->db->count_all_results('my_table');
+// Produces an integer, like 25
+
+$this->db->like('title', 'match');
+$this->db->from('my_table');
+echo $this->db->count_all_results();
+// see more here http://ellislab.com/codeigniter/user-guide/database/active_record.html
+// Produces an integer, like 17 
+//-----------------------------------------------------------------------------+
