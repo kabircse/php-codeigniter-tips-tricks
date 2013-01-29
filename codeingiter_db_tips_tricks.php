@@ -86,3 +86,68 @@ echo $this->db->count_all_results();
 // see more here http://ellislab.com/codeigniter/user-guide/database/active_record.html
 // Produces an integer, like 17 
 //-----------------------------------------------------------------------------+
+
+// INSERT RECORD IN CI
+$data = array(
+   array(
+      'title' => 'My title' ,
+      'name' => 'My Name' ,
+      'date' => 'My date'
+   ),
+   array(
+      'title' => 'Another title' ,
+      'name' => 'Another Name' ,
+      'date' => 'Another date'
+   )
+);
+
+$this->db->insert_batch('mytable', $data);
+// Produces: INSERT INTO mytable (title, name, date) VALUES ('My title', 'My name', 'My date'), ('Another title', 'Another name', 'Another date')
+
+// INSERT USING SET STATEMENT
+$this->db->set('name', $name);
+$this->db->insert('mytable');
+
+// Produces: INSERT INTO mytable (name) VALUES ('{$name}')
+$this->db->set('field', 'field+1', FALSE);
+$this->db->insert('mytable');
+// gives INSERT INTO mytable (field) VALUES (field+1)
+
+//INSERT USING A OBJECT
+/*
+    class Myclass {
+        var $title = 'My Title';
+        var $content = 'My Content';
+        var $date = 'My Date';
+    }
+*/
+
+$object = new Myclass;
+
+$this->db->set($object);
+$this->db->insert('mytable'); 
+
+// UPDATE USING OBJECT
+
+/*
+    class Myclass {
+        var $title = 'My Title';
+        var $content = 'My Content';
+        var $date = 'My Date';
+    }
+*/
+
+$object = new Myclass;
+
+$this->db->where('id', $id)->limit(1)->update('mytable', $object);
+
+// UPDATE WITHOUT WHERE
+$this->db->update('mytable', $data, "id = 4");
+// MULTIPAL WHERE WITH ARRAY
+$this->db->update('mytable', $data, array('id' => $id));
+
+// DELETE DATA WITHOUT WHERE
+$this->db->delete('mytable', array('id' => $id));
+//TRUNCATE TABLE
+$this->db->from('mytable');
+$this->db->truncate(); 
