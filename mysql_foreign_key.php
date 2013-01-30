@@ -92,4 +92,32 @@ mysql> delete from author where id=2;
 Query OK, 1 row affected (0.01 sec)
 
 
+ALTER TABLE `categories`
+ADD CONSTRAINT `fk_categories_categories` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+CONSTRAINT `fk_SeNotesRel` FOREIGN KEY (`notesid`) REFERENCES `notes` (`notesid`) ON DELETE CASCADE,  
+              CONSTRAINT `fk_SeNotesRel2` FOREIGN KEY (`crmid`) REFERENCES `crmentity` (`crmid`) ON DELETE CASCADE  
+
+
+DELETE foreign key
+    ALTER TABLE `categories` DROP FOREIGN KEY `fk_categories_categories`;
+
+
+
+http://www.mobilefish.com/developer/mysql/mysql_quickguide_foreign_keys.html ON ACTION DO_SOMETHING
+
 When you delete the author's books first, the author no longer has any dependencies. You can therefore delete the author.
+
+MySQL is a free database server used to create dynamic web pages. Foreign keys link to a primary key in your tables....
+
+
+http://www.w3schools.com/sql/sql_foreignkey.asp
+http://bradmontgomery.blogspot.com/2009/04/how-to-set-up-foreign-key-constraint-in.html
+http://www.sitepoint.com/mysql-foreign-keys-quicker-database-development/
+
+http://www.ehow.com/way_5247249_mysql-foreign-key-tutorial.html
+
+A issue about foreign key in MySQL
+http://stackoverflow.com/questions/1905470/cannot-delete-or-update-a-parent-row-a-foreign-key-constraint-fails
+
+http://dev.mysql.com/doc/refman/5.5/en/innodb-foreign-key-constraints.html
