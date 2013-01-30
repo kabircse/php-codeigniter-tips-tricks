@@ -96,7 +96,7 @@ ALTER TABLE `categories`
 ADD CONSTRAINT `fk_categories_categories` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 CONSTRAINT `fk_SeNotesRel` FOREIGN KEY (`notesid`) REFERENCES `notes` (`notesid`) ON DELETE CASCADE,  
-              CONSTRAINT `fk_SeNotesRel2` FOREIGN KEY (`crmid`) REFERENCES `crmentity` (`crmid`) ON DELETE CASCADE  
+              CONSTRAINT `fk_SeNotesRel2` FOREIGN KEY (`crmid`) REFERENCES `crmentity` (`crmid`) ON DELETE CASCADE  | ON DELETE SET NULL | ON DELETE RESTRICT
 
 
 DELETE foreign key
