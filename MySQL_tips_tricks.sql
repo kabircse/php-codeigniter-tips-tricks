@@ -31,5 +31,5 @@ mysql> select datediff('2011-06-18','2011-06-25');
 +-------------------------------------+
 
 
-ALTER TABLE contacts ADD email VARCHAR(60) AFTER name;
+ALTER TABLE contacts ADD email VARCHAR(60) AFTER name; -- FIRST
 ALTER TABLE `pa_policy` CHANGE `prev_policy_number` `prev_policy_id` INT(11) DEFAULT NULL
