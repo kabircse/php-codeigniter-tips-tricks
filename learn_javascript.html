@@ -4,24 +4,28 @@
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script language="javascript" type="text/javascript">
-            <!--
-
+            console.log('Start execution js script');
             function cat(name) {
                 this.name = name;
                 this.talk = function() {
-                    alert( this.name + " say meeow!" )
+                    //alert( this.name + " say meeow!" )
+                    console.log(this.name + ' say meeow!');
                 }
                 this.setName = function(name) {
                     this.name = name;
                     return this;
                 }
                 this.sayHello = function(target_person) {
-                    alert('Hello ' + target_person + ', my name is ' + this.name);
+                    // alert('Hello ' + target_person + ', my name is ' + this.name);
+                    console.log('Hello ' + target_person + ', my name is ' + this.name);
                 }
             }
             
             cat.prototype.changeName = function(name) {
                 this.name = name;
+            }
+            cat.prototype.getName = function() {
+                return this.name;
             }
             
 
@@ -31,13 +35,28 @@
 
             cat2 = new cat("ginger")
             cat2.talk() //alerts "ginger says meeow!"
-            cat2.setName('Sonny Nguyen').sayHello('Andrew');
+            cat2.setName('Kitty').sayHello('Andrew');
             cat2.talk()
+            
+            console.log('call to getName method of cat2, here cat2.name: ' + cat2.getName());
+            console.log('end execution js script');
+            //If it's an anonymous function you also need to wrap it in parentheses.
+            //“JavaScript Patterns” Book
+            
+// callbacks
+function test(a, b, fn) {
+    fn(a, b);
+}
+//test(1, 2, myFunc);
+test(1, 2, function(one, two){
+    console.log(arguments);
+});
 
-            //-->
+
+
+
         </script>
     </head>
     <body>
-        <div>TODO write content</div>
     </body>
 </html>
