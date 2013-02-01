@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script language="javascript" type="text/javascript">
+            <!--
+
+            function cat(name) {
+                this.name = name;
+                this.talk = function() {
+                    alert( this.name + " say meeow!" )
+                }
+                this.setName = function(name) {
+                    this.name = name;
+                    return this;
+                }
+                this.sayHello = function(target_person) {
+                    alert('Hello ' + target_person + ', my name is ' + this.name);
+                }
+            }
+            
+            cat.prototype.changeName = function(name) {
+                this.name = name;
+            }
+            
+
+
+            cat1 = new cat("felix")
+            cat1.talk() //alerts "felix says meeow!"
+
+            cat2 = new cat("ginger")
+            cat2.talk() //alerts "ginger says meeow!"
+            cat2.setName('Sonny Nguyen').sayHello('Andrew');
+            cat2.talk()
+
+            //-->
+        </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+    </body>
+</html>
