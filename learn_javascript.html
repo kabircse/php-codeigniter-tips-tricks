@@ -5,6 +5,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script language="javascript" type="text/javascript">
             console.log('Start execution js script');
+            var script_name = 'Learning OOP in javascipt';
+            //print("You are running the script: ", script_name, " in browser");
             function cat(name) {
                 this.name = name;
                 this.talk = function() {
@@ -38,23 +40,76 @@
             cat2.setName('Kitty').sayHello('Andrew');
             cat2.talk()
             
+            // prototype & extend
+            //if(typeof Object.create !== "function") { Object.create = function (o) { function F() {} F.prototype = o; return new F(); }; }
+            //extend object
+            function extend(obj, props) { for(prop in props) { if(props.hasOwnProperty(prop)) { obj[prop] = props[prop]; } } }
+            // exmaple
+            extend(cat2, { sayGoodbye: function() { alert("goodbye from " + this.name); } });
+            cat2.sayGoodbye();
+            
+            
             console.log('call to getName method of cat2, here cat2.name: ' + cat2.getName());
             console.log('end execution js script');
             //If it's an anonymous function you also need to wrap it in parentheses.
             //“JavaScript Patterns” Book
             
-// callbacks
-function test(a, b, fn) {
-    fn(a, b);
-}
-//test(1, 2, myFunc);
-test(1, 2, function(one, two){
-    console.log(arguments);
-});
+            // callbacks
+            function test(a, b, fn) {
+                fn(a, b);
+            }
+            //test(1, 2, myFunc);
+            test(1, 2, function(one, two){
+                console.log(arguments);
+            });
+
+            //singleton pattern
+            function Single() {
+ 
+                var instance = this; 
+ 
+                // add more to this�
+ 
+                Single = function (){
+                    return instance;  
+                };
+            }
+ 
+            // test
+            var my1 = new Single();
+            var my2 = new Single();
+            alert(my1 === my2) //true
+
+            // singleton another way
 
 
+            function Constructor() {
+                return Constructor.getInstance(this);
+            }
 
+            Constructor.getInstance = function(){
+                var instance;
+                return function(that) {
+                    if (typeof instance === 'undefined') {
+                        instance = that;
+                    }
+                    return instance;
+                }
+            }();
 
+            var obj = new Constructor();
+            var obj2 = new Constructor();
+            alert(obj === obj2); // true
+            
+            
+            
+            
+
+            //http://www.jspatterns.com
+            //Object-Oriented JavaScript book
+            //http://eloquentjavascript.net/chapter8.html | beautifull typo
+            
+            // another tutorail about js http://www.adobe.com/devnet/html5/articles/javascript-object-creation.html
         </script>
     </head>
     <body>
