@@ -3,7 +3,29 @@
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script language="javascript" type="text/javascript">
+            /* jQuery custom event */
+            // ----------- jQuery custom event ----------------------------------+
+            jQuery( document ).ready( function( $ ) {
+                var first = setTimeout( function() {
+                    $( document ).trigger( 'banana', 'First Banana' );
+                    }, 1000
+                );
+                var second = setTimeout( function() {
+                    $( document ).trigger( 'banana', 'Second Banana' );
+                    }, 2000
+                );
+                var third = setTimeout( function() {
+                    $( document ).trigger( 'banana', 'Third Banana' );
+                    }, 3000
+                );
+                $( document ).bind( 'banana', function ( e, message ) {
+                    console.log( message );
+                } );
+            } );
+            // ------------------------------------------------------------------+   
+            
             console.log('Start execution js script');
             var script_name = 'Learning OOP in javascipt';
             //print("You are running the script: ", script_name, " in browser");
