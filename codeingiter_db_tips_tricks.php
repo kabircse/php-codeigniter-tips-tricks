@@ -150,4 +150,23 @@ $this->db->update('mytable', $data, array('id' => $id));
 $this->db->delete('mytable', array('id' => $id));
 //TRUNCATE TABLE
 $this->db->from('mytable');
-$this->db->truncate(); 
+$this->db->truncate();
+
+
+//codeigniter db transaction
+$this->db->trans_begin();
+
+$this->db->query('AN SQL QUERY...');
+$this->db->query('ANOTHER QUERY...');
+$this->db->query('AND YET ANOTHER QUERY...');
+
+if ($this->db->trans_status() === FALSE)
+{
+    $this->db->trans_rollback();
+}
+else
+{
+    $this->db->trans_commit();
+}
+
+//http://ellislab.com/codeigniter/user-guide/database/transactions.html
