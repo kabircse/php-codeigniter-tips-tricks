@@ -30,6 +30,10 @@ mysql> select datediff('2011-06-18','2011-06-25');
 |                                  -7 | 
 +-------------------------------------+
 
+//add date to compare date field in MySQL
+expiry_date <= DATE_ADD(CURDATE(), INTERVAL -1 DAY)
+expiry_date = DATE_ADD(CURDATE(), INTERVAL " . $param_renewal_trigger_days->value . " DAY)
+
 
 ALTER TABLE contacts ADD email VARCHAR(60) AFTER name; -- FIRST
 ALTER TABLE `pa_policy` CHANGE `prev_policy_number` `prev_policy_id` INT(11) DEFAULT NULL
