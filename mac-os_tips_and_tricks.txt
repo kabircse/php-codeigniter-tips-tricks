@@ -1,0 +1,3 @@
+SEARCH FILE IN MAC:
+find ~ -iname \*resume\*
+find / -iname \*NetBeans\*
