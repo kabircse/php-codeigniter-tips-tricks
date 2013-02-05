@@ -1,3 +1,10 @@
 SEARCH FILE IN MAC:
 find ~ -iname \*resume\*
 find / -iname \*NetBeans\*
+
+REMOVE FILE OR FOLDER
+
+rm -rf file|folder (path to file or folder)
+
+example:
+rm org.netbeans.ide.*
