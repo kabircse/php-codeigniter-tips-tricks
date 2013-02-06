@@ -5,6 +5,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script language="javascript" type="text/javascript">
+            /**
+            * Yuranga Library - Development
+            * @author Sonny Nguyen <sonny@yuranga.com>
+            */
             // usage: log('inside coolFunc',this,arguments);
             // http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
             window.log = function(){
@@ -15,6 +19,23 @@
                 }
             }
             log('Hello world');
+             (function() {
+                window.write = function(content) {
+                    document.write(content);
+                }
+                
+                window.print = function(content) {
+                    document.write(content);
+                }
+                
+            function meta(name, content) {
+                write('<meta name="' + name + '" content="' + content + '">');
+            }
+            
+
+                write('hello world');
+            })();
+            
             if (console === undefined ) {
                 /*
                  console.log('some msg');
@@ -171,13 +192,13 @@
             function doSomeThing() {
                 this.todoList = 'Something to do';
                 this.callback = null;
-                this.setTodoList = function(todoList, callback) {
+                this.init = function(todoList, callback) {
                     this.todoList = todoList;
                     this.callback = callback;
                     return this;
                 }
                 this.execute = function() {
-                    alert(this.todoList);
+                    write(this.todoList);
                     return this;
                 }
                 this.done = function() {
@@ -186,13 +207,15 @@
             }
             
             var doHomeWork = new doSomeThing();
-            doHomeWork.setTodoList('clearn the floor', function() {
-                alert('this is callback function');
-                alert('this is doHomeWork todo list: ' + this.todoList);
+            doHomeWork.init('clearn the floor', function() {
+                write('this is callback function');
+                write('this is doHomeWork todo list: ' + this.todoList);
+                // you can recall to do something in parent too
                 this.execute();
             }).execute().done();
             
             
+           
             
 
             //http://www.jspatterns.com
