@@ -36,6 +36,7 @@
                 write('hello world');
             })();
             
+            
             if (console === undefined ) {
                 /*
                  console.log('some msg');
@@ -65,6 +66,36 @@
                 //var console = console || { log: function(text){ alert(text); }};
                 //var console=console||{"log":function(){}};
             }
+            
+            function doSomething() {
+                                this.message = 'Hello world';
+    			//load function
+				this.load = function(message) {
+                                        this.message = message;
+					return this;
+				}
+				
+				this.done = function(callback) {
+                                  
+					callback(this.message);
+				}
+				
+			}
+            
+			var doHomeWork = new doSomething();
+			
+                        doHomeWork.load('Hello Sonny Nguyen').done(function(message) {
+                            console.log('This is message from object: ' + message);
+                            console.debug('This is message from doSomething object: %s', message);
+                            console.info('This is message from doSomething object: %s', message);
+                            console.warn('This is message from doSomething object: %s', message);
+                            console.error('This is message from doSomething object: %s', message);
+                            var animal = 'Dog', count = '4';
+                            console.log("The", animal, "jumped over", count, "tall buildings");
+                            document.writeln("The", animal, "jumped over", count, "tall buildings");
+                            console.log('%cThis is red text on a green background', 'color:re  d; background-color:green');
+                        });
+                        
     
             /* jQuery custom event */
             // ----------- jQuery custom event ----------------------------------+
