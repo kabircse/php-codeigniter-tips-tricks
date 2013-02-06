@@ -5,6 +5,46 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script language="javascript" type="text/javascript">
+            // usage: log('inside coolFunc',this,arguments);
+            // http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
+            window.log = function(){
+                log.history = log.history || [];   // store logs to an array for reference
+                log.history.push(arguments);
+                if(this.console){
+                    console.log( Array.prototype.slice.call(arguments) );
+                }
+            }
+            log('Hello world');
+            if (console === undefined ) {
+                /*
+                 console.log('some msg');
+                console.info('information');
+                console.warn('some warning');
+                console.error('some error');
+                console.assert(false, 'YOU FAIL');
+                */
+                
+                /*
+                function ieConsole() {
+                    
+                    this.log = function(text) {
+                        alert(text);
+                    }
+                }
+                var console = new ieConsole();
+                */
+               // second way
+               /*
+                var console = console || {};
+                console.log = function(text) {
+                    alert(text);
+                }*/
+                
+                // three, dont need if statement
+                //var console = console || { log: function(text){ alert(text); }};
+                //var console=console||{"log":function(){}};
+            }
+    
             /* jQuery custom event */
             // ----------- jQuery custom event ----------------------------------+
             jQuery( document ).ready( function( $ ) {
@@ -72,7 +112,7 @@
             //extend object
             function extend(obj, props) { for(prop in props) { if(props.hasOwnProperty(prop)) { obj[prop] = props[prop]; } } }
             // exmaple
-            extend(cat2, { sayGoodbye: function() { alert("goodbye from " + this.name); } });
+            extend(cat2, { sayGoodbye: function() { console.log("goodbye from " + this.name); } });
             cat2.sayGoodbye();
             
             
@@ -128,6 +168,29 @@
             var obj2 = new Constructor();
             alert(obj === obj2); // true
             
+            function doSomeThing() {
+                this.todoList = 'Something to do';
+                this.callback = null;
+                this.setTodoList = function(todoList, callback) {
+                    this.todoList = todoList;
+                    this.callback = callback;
+                    return this;
+                }
+                this.execute = function() {
+                    alert(this.todoList);
+                    return this;
+                }
+                this.done = function() {
+                    this.callback();
+                }
+            }
+            
+            var doHomeWork = new doSomeThing();
+            doHomeWork.setTodoList('clearn the floor', function() {
+                alert('this is callback function');
+                alert('this is doHomeWork todo list: ' + this.todoList);
+                this.execute();
+            }).execute().done();
             
             
             
