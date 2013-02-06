@@ -18,6 +18,14 @@
                  $(overlay_html).width(w).height(h).appendTo('body');
                 //$('body').append(str);
             }
+            
+            var item = $('<div/>').css("background-color", '#' + colors[c]).addClass("colorbox");
+      item.click((function () {
+        var col = colors[c];
+        return function () {
+          currentColor = col;
+        };
+        
         </script>
         <style type="text/css">
             .overlay {
