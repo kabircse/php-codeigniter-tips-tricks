@@ -3,29 +3,72 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
-            function show_overlay() {
+            function yuranga_overlay() {
+                this.w = 0, this.h = 0;
+                this.loading = $('<div/>').addClass('overlay_loading');
+                this.overlay = $('<div/>').attr('id', 'div-processing').addClass('overlay').width(this.w).height(this.h).css('display', 'none');
+                var fn  = this;
+                
+                this.getSize = function() {
+                    var wh = $(window).height();
+                    var ww = $(window).width();
+                    var dh = $(document).height();
+                    var dw = $(document).width();
 
-                var wh = $(window).height();
-                var ww = $(window).width();
-                var dh = $(document).height();
-                var dw = $(document).width();
-
-                var h = (wh > dh) ? wh : dh;
-                var w = (ww > dw) ? ww : dw;
-                //style="width:' + w + 'px;height:' + h + 'px"
-                var overlay_html = '<div id="div-processing" class="overlay">\
-                            <div class="overlay_loading"></div></div>';
-                 $(overlay_html).width(w).height(h).appendTo('body');
+                    this.h = (wh > dh) ? wh : dh;
+                    this.w = (ww > dw) ? ww : dw;
+                    return this;
+                };
+                
+                this.setSize = function() {
+                    this.overlay.width(this.w).height(this.h);
+                };
+                
+                this.init = function() {
+                    this.getSize().setSize();
+                    this.overlay.append(this.loading).appendTo('body');
+                };
+                
+                this.show = function() {
+                    this.overlay.show();
+                };
+                
+                this.overlay_resize = function() {
+                    fn.getSize().setSize();
+                };
+                
+                //$(window).bind('resize', this.overlay_resize);
+                $(window).bind('resize', fn.overlay_resize);
+                
+//                
+//                var overlay_html = '<div id="div-processing" class="overlay">\
+//                            <div class="overlay_loading"></div></div>';
+//                $(overlay_html).width(w).height(h).appendTo('body');
                 //$('body').append(str);
             }
             
-            var item = $('<div/>').css("background-color", '#' + colors[c]).addClass("colorbox");
-      item.click((function () {
-        var col = colors[c];
-        return function () {
-          currentColor = col;
-        };
-        
+            $(document).ready(function() {
+                var overlay = new yuranga_overlay();
+                overlay.init();
+                $('#show_overlay').click(function(){
+                    overlay.show();
+                })
+                
+                
+                
+                
+                var item = $('<div/>').css("background-color", '#acacac').addClass("colorbox").html('Click me');
+                item.click(function() {
+
+                    //alert(item.html());
+                    $(this).html('You clicked on me').css('color', 'red');
+                });
+                
+                $('.page_content').append(item);
+
+
+            })
+
         </script>
         <style type="text/css">
             .overlay {
@@ -65,7 +108,7 @@
 
 
         </div>
-        <a href="javascript:show_overlay();">Show overlay</a>
+        <a href="javascript:void(0)" id="show_overlay">Show overlay</a>
 
     </body>
 </html>
