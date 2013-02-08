@@ -1,0 +1,8 @@
+RewriteCond %{HTTP_HOST} ^xyz\.domain\.com$
+RewriteRule ^/(.*) http://domain.com/$1 [redirect,last]
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^blog\.mysite\.com
+RewriteRule ^(.*)$ /blog/$1 [L]
+
+http://www.scriptygoddess.com/archives/2007/06/13/redirect-a-subdomain-to-a-directory-using-htaccess/
