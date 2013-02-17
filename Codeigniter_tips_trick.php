@@ -1,3 +1,4 @@
+<?php
 //
 // Codeigniter native SESSION
 //
@@ -22,8 +23,7 @@ $config['sess_driver'] = 'cookie';
 //
 // resize image
 //
-public function do_resize()
-{
+function do_resize() {
     $filename = $this->input->post('new_val');
     $source_path = $_SERVER['DOCUMENT_ROOT'] . '/uploads/avatar/tmp/' . $filename;
     $target_path = $_SERVER['DOCUMENT_ROOT'] . '/uploads/avatar/';
@@ -85,6 +85,54 @@ $this->load->library('thelibrary', array('param1' => 'value1'));
 function valid_email($str) {
         return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
     }
+    
 
 // codeingiter add class for form element if It's not validated
+    ?>
 <input name="your_field_name" class="control-group <?php if (form_error('your_field_name')) echo ' class="error"'; ?>">
+<?php
+// UPLOAD TWO FILES WITH DIFFERENCE PATHS
+//// this is for form field 1 which is an image....
+$config['upload_path'] = './uploads/';
+$config['allowed_types'] = 'gif|jpg|png';
+$config['max_size'] = '100';
+$config['max_width'] = '1024';
+$config['max_height'] = '768';
+$this->upload->initialize($config); 
+$this->upload->do_upload($fieild_1);
+
+// this is for form field 2 which is a pdf
+$config['upload_path'] = './pdfs/';
+$config['allowed_types'] = 'pdf';
+$config['max_size'] = '100';
+$this->upload->initialize($config); 
+$this->upload->do_upload($fieild_2);
+
+//UPLOAD MULTIPAL FILES
+function upload_multipal_files() {
+    $config['upload_path'] = 'upload/Main_category_product/';
+    $path = $config['upload_path'];
+    $config['allowed_types'] = 'gif|jpg|jpeg|png';
+    $config['max_size'] = '1024';
+    $config['max_width'] = '1920';
+    $config['max_height'] = '1280';
+    $this->load->library('upload');
+
+    foreach ($_FILES as $key => $value) {
+
+
+        if (!empty($key['name'])) {
+
+            $this->upload->initialize($config);
+            if (!$this->upload->do_upload($key)) {
+
+                $errors = $this->upload->display_errors();
+
+
+                flashMsg($errors);
+            } else {
+                // Code After Files Upload Success GOES HERE
+            }
+        }
+    }
+}

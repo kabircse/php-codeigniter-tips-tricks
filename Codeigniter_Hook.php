@@ -1,3 +1,4 @@
+<?php
 // Codeigniter Hook
 
 //Simply enable hooks:
