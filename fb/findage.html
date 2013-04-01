@@ -155,6 +155,31 @@
     
                 return msg;  // date is valid
             }
+            
+            var app = app || {};
+            app.config = {
+                BASE_URL: '',
+                JS_URL: ''
+            };
+            app.log = function(msg) {
+                console.log(msg);
+            };
+            
+            
+            app.init = function(options) {
+                this.log('App has been initialed');
+                if (options.callback != 'undefined') {
+                    options.callback(options.callback_arg.name);  
+                }
+            }
+            
+            app.init( { 'callback': function(arg) {
+                    app.log('this is callback function');
+                    app.log('And this is arguments too: ' + arg);
+                }, 'callback_arg': { name: 'Sonny Nguyen', age: 29 }
+            } );
+            
+            
             </script>
 
         <form name="as400samplecode">
