@@ -1,0 +1,167 @@
+<html>
+    <head>
+    </head>
+    <body>
+
+        <script type="text/javascript"> <!--
+//			var d = new Date();
+//			var d = new Date(milliseconds);
+//			var d = new Date(dateString);
+//			var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);
+            var d = new Date();
+            d.setFullYear(1984, 2, 0);
+            console.log('The last day in 1984/02 is: ' + d.getDate());
+            
+
+            var month = 0; // January
+            var nd = new Date(2008, month + 1, 0);
+            console.log('The last day in 2008/01 is ' + d.getDate()); // last day in January
+            
+            function DaysInMonth(year, month) {
+                var monthStart = new Date(year, month, 1);
+                var monthEnd = new Date(year, month + 1, 1);
+                var monthLength = (monthEnd - monthStart) / (1000 * 60 * 60 * 24)
+            }
+            
+            Date.prototype.daysInMonth = function() { var mlen=DaysInMonth(this.getFullYear(), this.getMonth()); return mlen; };
+            
+            
+            
+            
+            function daysInMonth(month,year) 
+            {
+               return new Date(year, month, 0).getDate();
+               // Day 0 is the last day in the previous month.
+               // Because the month constructor is 0 based, this works nicely.
+               // A bit of a hack, but that's basically what your doing by subtracting 32.
+               // get next month days
+               //return new Date(year, month + 1, 0).getDate();
+            }
+            
+            // caching version
+            var _daysInMonth = (function() {
+                var cache = {};
+                return function(month, year) {
+                    var entry = year+"-"+month;
+                    if (entry in cache)
+                        return cache[entry];
+                    return cache[entry] = new Date(year, month, 0).getDate();
+                }
+            })();
+            
+            console.log(_daysInMonth(2, 1984));
+ 
+            function myAgeValidation() {
+ 
+                var lre = /^\s*/;
+                var datemsg = "";
+    
+                var inputDate = document.as400samplecode.myDate.value;
+                inputDate = inputDate.replace(lre, "");
+                document.as400samplecode.myDate.value = inputDate;
+                datemsg = isValidDate(inputDate);
+                if (datemsg != "") {
+                    alert(datemsg);
+                    return;
+                }
+                else {
+                    //Now find the Age based on the Birth Date
+                    getAge(new Date(inputDate));
+                }
+ 
+            }
+ 
+            function getAge(birth) {
+ 
+                var today = new Date();
+                var nowyear = today.getFullYear();
+                var nowmonth = today.getMonth();
+                var nowday = today.getDate();
+ 
+                var birthyear = birth.getFullYear();
+                var birthmonth = birth.getMonth();
+                var birthday = birth.getDate();
+ 
+                var age = nowyear - birthyear;
+                var age_month = nowmonth - birthmonth;
+                var age_day = nowday - birthday;
+    
+                if(age_month < 0 || (age_month == 0 && age_day <0)) {
+                    age = parseInt(age) -1;
+                }
+                alert(age);
+    
+                if ((age == 18 && age_month <= 0 && age_day <=0) || age < 18) {
+                }
+                else {
+                    alert("You have crossed your 18th birthday !");
+                }
+ 
+            }
+ 
+            function isValidDate(dateStr) {
+ 
+    
+                var msg = "";
+                // Checks for the following valid date formats:
+                // MM/DD/YY   MM/DD/YYYY   MM-DD-YY   MM-DD-YYYY
+                // Also separates date into month, day, and year variables
+ 
+                // To require a 2 & 4 digit year entry, use this line instead:
+                //var datePat = /^(\d{1,2})(\/|-)(\d{1,2})\2(\d{2}|\d{4})$/;
+                // To require a 4 digit year entry, use this line instead:
+                var datePat = /^(\d{1,2})(\/|-)(\d{1,2})\2(\d{4})$/;
+ 
+                var matchArray = dateStr.match(datePat); // is the format ok?
+                if (matchArray == null) {
+                    msg = "Date is not in a valid format.";
+                    return msg;
+                }
+ 
+                month = matchArray[1]; // parse date into variables
+                day = matchArray[3];
+                year = matchArray[4];
+ 
+    
+                if (month < 1 || month > 12) { // check month range
+                    msg = "Month must be between 1 and 12.";
+                    return msg;
+                }
+ 
+                if (day < 1 || day > 31) {
+                    msg = "Day must be between 1 and 31.";
+                    return msg;
+                }
+ 
+                if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+                    msg = "Month "+month+" doesn't have 31 days!";
+                    return msg;
+                }
+ 
+                if (month == 2) { 
+					// check for february 29th
+                    var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+                    if (day > 29 || (day == 29 && !isleap)) {
+                        msg = "February " + year + " doesn't have " + day + " days!";
+                        return msg;
+                    }
+                }
+ 
+                if (day.charAt(0) == '0') day= day.charAt(1);
+    
+                //Incase you need the value in CCYYMMDD format in your server program
+                //msg = (parseInt(year,10) * 10000) + (parseInt(month,10) * 100) + parseInt(day,10);
+    
+                return msg;  // date is valid
+            }
+ 
+            // --> </script>
+
+        <form name="as400samplecode">
+            Enter Birth Date:  <input type="text" name="myDate" size=10 maxlength=10> (in MM/DD/YYYY format)
+            <input type="button" value="Find Age" onclick="Javascript:myAgeValidation()">
+        </form>
+
+    </body>
+
+</html>

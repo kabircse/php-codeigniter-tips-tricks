@@ -1,3 +1,4 @@
+<?php
 /*+-----------------------------------------------------------------------------+*/
 // You are actually saying assign $a by reference to $b.
 $a = 42;
@@ -72,7 +73,7 @@ if( $someCondition == true ) {
 //
 function get_data($data_key) {
 	static $dataset; 
-	if(!isset($dataset[$data_key]) {
+	if(!isset($dataset[$data_key])) {
 		//query database or something like that to get data 
 		//set data to static variable
 	}
@@ -100,3 +101,9 @@ function drupal_container(Container $new_container = NULL) {
 function get_file_extension($file_name) {
   return substr(strrchr($file_name,'.'),1);
 }
+
+$filename = substr($file_full_path, strrpos($file_full_path, '/') + 1);
+// get file name without extension
+$filename_without_extension = substr($filename, 0, strrpos($filename, '.'));
+// get file extension
+$fileext = substr($filename, strrpos($filename, '.') + 1);

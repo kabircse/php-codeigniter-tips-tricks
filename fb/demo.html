@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <script type="text/javascript">
+        
+            function validate()
+            {
+                var ok = true;
+                
+                // Check each has a value selected
+                ok = ok && document.getElementById("bdayDay").selectedIndex > 0;
+                ok = ok && document.getElementById("bdayYear").selectedIndex > 0;
+                ok = ok && document.getElementById("bdayMonth").selectedIndex > 0;
+                
+                // Should probably also check that the value corresponds to a valid date
+                // (e.g. not 30th February)
+                
+                if (!ok)
+                {
+                    alert("Please select your birthday.");
+                    return false;
+                }
+                
+                return true;
+            }
+        
+            function consolidateBirthday(form)
+            {
+                // Get the elements
+                var day = document.getElementById("bdayDay");
+                var year = document.getElementById("bdayYear");
+                var month = document.getElementById("bdayMonth");
+                
+                // Get their values
+                day = day.options[day.selectedIndex].value;
+                year = year.options[year.selectedIndex].value;
+                month = month.options[month.selectedIndex].value;
+                
+                // Construct the date value
+                var date = month + '/' + day + '/' + year;
+                
+                // Create and add the input
+                var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = "txtContactBDay";
+                input.value = date;
+                
+                form.appendChild(input);
+                return true;
+            }
+            
+            function checkDate() {
+                var myDayStr = document.CheckDate.formDate.value;
+                var myMonthStr = document.CheckDate.formMonth.value;
+                var myYearStr = document.CheckDate.formYear.value;
+                var myMonth = new Array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'); 
+                var myDateStr = myDayStr + ' ' + myMonth[myMonthStr] + ' ' + myYearStr;
+                
+                /* Using form values, create a new date object using the setFullYear function */
+                var myDate = new Date();
+                myDate.setFullYear( myYearStr, myMonthStr, myDayStr );
+                
+                if ( myDate.getMonth() != myMonthStr ) {
+                    alert( 'I\'m sorry, but "' + myDateStr + '" is NOT a valid date.' );
+                } else {
+                    alert( 'Congratulations! "' + myDateStr + '" IS a valid date.' );
+                }
+            }
+
+            
+        </script>
+    </head>
+
+    <body>
+        <noscript>You need to turn on javascript!</noscript>
+        <form onsubmit="return validate() &amp;&amp; consolidateBirthday(this)">
+            <strong>Birthday:</strong>
+                <select id="bdayMonth">
+                    <option>Month</option>
+                    <option value="1">Jan</option>
+                    <option value="2">Feb</option>
+                    <option value="3">Mar</option>
+                    <option value="4">Apr</option>
+                    <option value="5">May</option>
+                    <option value="6">Jun</option>
+                </select>
+                <select id="bdayDay">
+                    <option>Day</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                <select id="bdayYear">
+                    <option>Year</option>
+                    <option>1989</option>
+                    <option>1990</option>
+                    <option>1991</option>
+                    <option>1992</option>
+                    <option>1993</option>
+                    <option>1994</option>
+                    <option>1995</option>
+                </select>
+                <input type="submit" />
+        </form>
+    </body>
+    
+</html>
