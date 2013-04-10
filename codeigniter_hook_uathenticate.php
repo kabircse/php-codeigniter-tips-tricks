@@ -1,3 +1,5 @@
+<?php
+
 #application/hooks/SecureAccount.php
 class SecureAccount
 {

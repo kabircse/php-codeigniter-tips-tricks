@@ -1,3 +1,4 @@
+<?php
 $this->load->library('my_template', $configs);
 $this->my_template->view('file_view', $data, 'specifix_template_or_leave_blank_for_default');
 

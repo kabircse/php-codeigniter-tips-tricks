@@ -1,3 +1,5 @@
+<?php
+
 if( ! function_exists('secure_site_url') )
 {
     function secure_site_url($uri = '')

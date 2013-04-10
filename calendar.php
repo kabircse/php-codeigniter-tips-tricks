@@ -14,6 +14,7 @@ function lastDay($month = '', $year = '') {
    $result = strtotime('-1 second', strtotime('+1 month', $result));
    return date('Y-m-d', $result);
 }
+/* ----- gest first day of the month */
 
 function firstDay($month = '', $year = '')
 {

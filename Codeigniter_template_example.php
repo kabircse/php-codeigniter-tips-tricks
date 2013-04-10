@@ -1,3 +1,5 @@
+<?php
+
 #Template.php Library
 
 class Template {
