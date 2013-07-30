@@ -1,4 +1,4 @@
-phplawdoc
+Codeigniter and PHP tips & tricks for beginner
 =========
 
-a guide project for these people want to learn codeigntier and web development
+This is a list of tips trick &  guide for these people want to learn codeigntier, php and web development
