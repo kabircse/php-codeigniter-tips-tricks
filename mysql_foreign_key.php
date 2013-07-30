@@ -1,5 +1,6 @@
+<?
+/*
 How to Set up a Foreign Key Constraint in MySQL
-
 The default storage engine in MySQL (MyISAM) does not support Foreign Key constraints. If you want to use Foreign Keys in Mysql, you need to use InnoDB.
 
 The following is a simple example that illustrates Foreign Key constraints, we'll create tables to store information about Authors and their Books. The Foreign key will link a book to an Author. Note, that in MySQL we need to use the InnoDB storage engine to support Foreign Key Constraints.
@@ -121,3 +122,5 @@ A issue about foreign key in MySQL
 http://stackoverflow.com/questions/1905470/cannot-delete-or-update-a-parent-row-a-foreign-key-constraint-fails
 
 http://dev.mysql.com/doc/refman/5.5/en/innodb-foreign-key-constraints.html
+
+*/
