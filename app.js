@@ -34,6 +34,9 @@ function handler (req, res) {
   //http://martinsikora.com/nodejs-and-websocket-simple-chat-tutorial
 }
 
+function html_escape(str) {
+   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+}
 io.sockets.on('connection', function (socket) {
   socket.emit('news', { hello: 'world' });
   socket.on('my other event', function (data) {
@@ -41,6 +44,7 @@ io.sockets.on('connection', function (socket) {
   });
   // when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
+        data = html_escape(data);
 		// we tell the client to execute 'updatechat' with 2 parameters
         messages.push({username: socket.username, data: data});
 		io.sockets.emit('updatechat', socket.username, data);
