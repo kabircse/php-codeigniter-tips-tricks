@@ -15,6 +15,8 @@ io.set('transports', [
   ]);
 
 app.listen(port);
+// need helper for log
+// app.debug_log = function(log) { console.log(data); }
 
 var socket_users = {};
 
