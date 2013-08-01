@@ -4,6 +4,14 @@ var app = require('http').createServer(handler)
   , usernames = {}
   , messages = []
   , port = 8080;
+io.set('transports', [
+    'xhr-polling'
+  , 'jsonp-polling'
+  ,  'websocket'
+  , 'flashsocket'
+  , 'htmlfile'
+  
+  ]);
 
 app.listen(port);
 
@@ -38,10 +46,10 @@ function html_escape(str) {
    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 }
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
+  /*
   socket.on('my other event', function (data) {
     console.log(data);
-  });
+  });*/
   // when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
         data = html_escape(data);
@@ -51,18 +59,25 @@ io.sockets.on('connection', function (socket) {
 	});
 
   // add user
-  socket.on('adduser', function(username){
+  socket.on('adduser', function(username) {
 		// we store the username in the socket session for this client
 		socket.username = username;
 		// add the client's username to the global list
 		usernames[username] = username;
+        
+        socket.emit('loadmessage', messages);
+		socket.emit('updateusers', usernames);
 		// echo to client they've connected
-		socket.emit('updatechat', 'SERVER', 'you have connected');
+		socket.emit('updatechat', 'Admin', 'Hello ' + username +', welcome to chat.');
+     
 		// echo globally (all clients) that a person has connected
-		socket.broadcast.emit('updatechat', 'SERVER', username + ' has connected');
+		socket.broadcast.emit('updatechat', 'Admin', username + ' has join to chat room');
 		// update the list of users in chat, client-side
-		io.sockets.emit('loadmessage', messages);
-		io.sockets.emit('updateusers', usernames);
+//		io.sockets.emit('loadmessage', messages);
+//		io.sockets.emit('updateusers', usernames);
+		
+        //update for other clients
+		socket.broadcast.emit('updateusers', usernames);
 	});
   
   // end add user
@@ -74,8 +89,7 @@ io.sockets.on('connection', function (socket) {
 		// update list of users in chat, client-side
 		io.sockets.emit('updateusers', usernames);
 		// echo globally that this client has left
-		socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
+		socket.broadcast.emit('updatechat', 'Admin', socket.username + ' has left chat room');
 	});
   //end disconnect
-  
 });

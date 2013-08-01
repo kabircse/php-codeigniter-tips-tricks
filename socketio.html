@@ -4,55 +4,151 @@
         <meta charset="utf-8">
         <title>Simple chat</title>
         <script src="/socket.io/socket.io.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>
-            /*var socket = io.connect('http://nodejs-box-19648.apne1.actionbox.io:8080');
-             socket.on('news', function (data) {
-             console.log(data);
-             socket.emit('my other event', { my: 'data' });
-             });*/
-        </script>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-        <script>
+            // on load of page
             var socket = io.connect('http://nodejs-box-19648.apne1.actionbox.io:8080');
-
             // on connection to server, ask for user's name with an anonymous callback
             socket.on('connect', function() {
                 // call the server-side function 'adduser' and send one parameter (value of prompt)
-                socket.emit('adduser', prompt("What's your name?"));
+                 $('#loading_chat').hide();
+                 $('#user_info').show();
+                
+                
             });
+            function display_last_message() {
+                var myDiv = $("#conversation");
+                //myDiv.attr("scrollHeight") for jqueyr lower than 1.6
+                myDiv.animate({ scrollTop: myDiv.prop("scrollHeight") - myDiv.height() }, 500);
+
+            }
+            
             // listener, whenever the server emits 'updatechat', this updates the chat body
             socket.on('updatechat', function(username, data) {
-                $('#conversation').append('<b>' + username + ':</b> ' + data + '<br>');
+                if (username === 'Admin') {
+                    $('#conversation').append('<p class="system_notify"><span>' + username + '</span> ' + data + '</p>');
+                }
+                else {
+                   $('#conversation').append('<p><span>' + username + '</span> ' + data + '</p>'); 
+                }
+                display_last_message();
             });
             
             socket.on('loadmessage', function(messages) {
                 for (i in messages) {
-                    $('#conversation').append('<b>' + messages[i].username + ':</b> ' + messages[i].data + '<br>');
+                    $('#conversation').append('<p><span>' + messages[i].username + '</span> ' + messages[i].data + '</p>');
                 }
+                $('#user_info').hide();
+                $('#chat_area').show();
+                display_last_message();
             });
 
             // listener, whenever the server emits 'updateusers', this updates the username list
             socket.on('updateusers', function(data) {
                 $('#users').empty();
                 $.each(data, function(key, value) {
-                    $('#users').append('<div>' + key + '</div>');
+                    $('#users').append('<li>' + key + '</li>');
                 });
             });
-
-            // on load of page
-            $(function() {
+            
+            
+            
+        </script>
+        <style>
+            body { font-family:Consolas,Monaco,'Andale Mono',monospace; font-size: 14px; background: transparent url('https://developer.cdn.mozilla.net/media/img/bg-content.png') repeat; }
+            h3, ul, li {padding:0; margin:0;}
+            ul {list-style-type: none; }
+            li {padding:5px;}
+            h3 { margin-bottom: 10px; }
+            #user_list {
+                float:left;width:150px;border-left:1px solid #cdcdcd;height:300px;padding:10px; overflow-y: auto; overflow-x: hidden;
+            }
+            #chat_detail {
+                float:left;width:600px;height:300px;padding:10px;
+            }
+            #conversation {height:300px; overflow: auto;}
+            #conversation p { color: #690; }
+            #data {width: 600px; height: 40px; float: left; border: 1px solid #acacac; }
+            #datasend { height: 45px; width: 45px; padding: 0 5px; margin: 0 3px; border: 1px solid #cdcdcd}
+            #chat_area { display:none; }
+            .clear {clear:both;}
+            span { color: #686868; display: inline-block; width: 100px; }
+            #user_control { margin: 5px 0;}
+            p { padding: 5px; margin: 0;}
+            #user_info {display: none; padding: 10px 5px; background: #f5f2f0; }
+            #user_info label{ display: block; font-weight: bold; }
+            #user_info input{ border: 1px solid #acacac; padding: 5px; }
+            #user_info #username { width:250px; }
+            #conversation p.system_notify {
+                background-color: #faf9e2;
+                border-top: 1px solid #dddaaa;
+                border: solid #dddaaa;
+                border-width: 1px 0;
+                margin-bottom: 5px;
+                padding: 10px 5px;
+                color: #5d5636;
+            }
+            #loading_chat {
+                background: transparent url('http://cars.sydneycitylexus.com.au/images/blank_loading.gif') no-repeat center center;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0; left: 0;
+            }
+            #loading_message {
+                position: relative;
+                top: 52%;
+                text-align: center;
+                vertical-align: central;color: #905;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="chat_area">
+            <div id="chat_detail">
+                <div id="conversation"></div>
+            </div>
+            <div id="user_list">
+                <h3>People online</h3>
+                <ul id="users"></ul>
+            </div>
+            <p class="clear"></p>
+            <div id="user_control">
+                <textarea class="data" id="data"></textarea><input type="button" id="datasend" value="send" />
+            </div>
+        </div>
+        <div id="loading_chat">
+            <div id="loading_message">Initial chat, please wait ....</div>
+        </div>
+        <div id="user_info">
+            <label for="username">Please chose nick name:</label>
+            <input type="text" name="username" id="username" placeholder="Please chose your nick" value="" />
+            <input type="submit" onclick="sign_chat" id="sign_chat" value="Join chat" />
+        </div>
+        
+        <script>
+            jQuery(function($) {
+            
+                // when the client clicks Sign
+                $('#sign_chat').click(function() {
+                    var username = $('#username').val();
+                    $('#username').val('');
+                    // tell server to execute 'sendchat' and send along one parameter
+                    socket.emit('adduser', username);
+                });
                 // when the client clicks SEND
                 $('#datasend').click(function() {
                     var message = $('#data').val();
                     $('#data').val('');
                     // tell server to execute 'sendchat' and send along one parameter
+                    if ( message !== '') {
                     socket.emit('sendchat', message);
+                    }
                 });
 
                 // when the client hits ENTER on their keyboard
                 $('#data').keypress(function(e) {
-                    if (e.which == 13) {
+                    if (e.which === 13) {
                         $(this).blur();
                         $('#datasend').focus().click();
                     }
@@ -70,17 +166,7 @@
             //https://go-left.com/blog/programming/long-polling-with-node-js/
             //http://www.gianlucaguarini.com/blog/nodejs-and-a-simple-push-notification-server/
             //http://blog.nemikor.com/2010/05/21/long-polling-in-nodejs/
+            //https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/nsISocketTransportService
         </script>
-    </head>
-    <body>
-        <div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
-            <b>USERS</b>
-            <div id="users"></div>
-        </div>
-        <div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
-            <div id="conversation"></div>
-            <input id="data" style="width:200px;" />
-            <input type="button" id="datasend" value="send" />
-        </div>
     </body>
 </html>
