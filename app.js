@@ -78,6 +78,7 @@ io.sockets.on('connection', function (socket) {
               //var cookie = socket.handshake.headers['cookie'];
              // console.log(cookie);
              //console.log(socket.id); // this id is random generated for each connection
+             console.log(socket.transport.sessionid);
              socket.session_id = get_sid(socket.handshake.headers['cookie']);
              //console.log('Session ID: ' + socket.session_id);
              if ( socket_users[socket.session_id]  !== undefined ) {
