@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Nodejs Chat</title>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="/app.js"></script>
+        <link href="/app.css" media="all" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="chat_area">
+            <div id="chat_detail">
+                <div id="conversation"></div>
+            </div>
+            <div id="user_list">
+                <h3>People online</h3>
+                <ul id="users"></ul>
+            </div>
+            <p class="clear"></p>
+            <div id="user_control">
+                <textarea class="data" id="data"></textarea><input type="button" id="datasend" value="send" />
+            </div>
+        </div>
+        <div id="loading_chat">
+            <div id="loading_message">Initial chat, please wait ....</div>
+        </div>
+        <div id="user_info">
+            <h1>Starting to chat</h1>
+            <label for="username">What is your name:</label>
+            <input type="text" name="username" id="username" placeholder="Please chose your nick" value="" />
+            <input type="submit" onclick="sign_chat" id="sign_chat" value="Join chat" />
+        </div>
+    </body>
+</html>
