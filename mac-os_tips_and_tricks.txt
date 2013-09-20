@@ -8,3 +8,6 @@ rm -rf file|folder (path to file or folder)
 
 example:
 rm org.netbeans.ide.*
+
+# edit host file, type command bellow and hit enter, then type password, update and Ctrl+O to save
+sudo nano /private/etc/hosts
