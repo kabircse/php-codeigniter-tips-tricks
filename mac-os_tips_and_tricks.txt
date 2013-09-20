@@ -11,3 +11,7 @@ rm org.netbeans.ide.*
 
 # edit host file, type command bellow and hit enter, then type password, update and Ctrl+O to save
 sudo nano /private/etc/hosts
+
+# Generate ssh key in mac
+
+https://drupal.org/node/1070130
