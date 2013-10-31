@@ -17,6 +17,7 @@ if ($firstname == 'Jeff') {
     <script type="text/javascript">
       $.getJSON('./jsonp.php?callback=?', 'firstname=Jeff', function(res) {
         alert('Your name is ' + res.fullname);
+        alert('Bullshit data is: ' + res.message);
       });
     </script>
   </head>
