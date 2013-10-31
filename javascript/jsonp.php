@@ -2,7 +2,9 @@
 $firstname = isset($_GET['firstname']) ? $_GET['firstname'] : '';
 if ($firstname == 'Jeff') {
   header("Content-Type: application/json");
-  echo $_GET['callback'] . '(' . "{'fullname' : 'Jeff Hansen'}" . ')';
+  $data = array('fullname' => 'Jeff Hansen');
+  //echo $_GET['callback'] . '(' . "{'fullname' : 'Jeff Hansen'}" . ')';
+  echo $_GET['callback'] . '(' . json_encode($data) . ')';
   exit;
 }
 ?>
