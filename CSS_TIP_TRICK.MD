@@ -25,3 +25,4 @@
     -khtml-border-radius: 20px;
     border-radius: 20px;
 }
+http://jonraasch.com/blog/css-rounded-corners-in-all-browsers
