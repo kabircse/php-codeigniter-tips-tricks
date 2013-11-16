@@ -17,6 +17,7 @@
 }</code>
 http://css-tricks.com/snippets/css/cross-browser-opacity/
 
+
 ** ROUNDER CONNER:
 
 .rounded-corners {
@@ -25,4 +26,5 @@ http://css-tricks.com/snippets/css/cross-browser-opacity/
     -khtml-border-radius: 20px;
     border-radius: 20px;
 }
+http://css-tricks.com/snippets/css/rounded-corners/
 http://jonraasch.com/blog/css-rounded-corners-in-all-browsers
