@@ -15,7 +15,7 @@
   /* Good browsers */
   opacity: 0.5;
 }</code>
-
+http://css-tricks.com/snippets/css/cross-browser-opacity/
 
 ** ROUNDER CONNER:
 
