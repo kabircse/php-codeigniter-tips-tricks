@@ -15,3 +15,13 @@
   /* Good browsers */
   opacity: 0.5;
 }</code>
+
+
+** ROUNDER CONNER:
+
+.rounded-corners {
+     -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
