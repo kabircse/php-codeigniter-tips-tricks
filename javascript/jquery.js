@@ -12,4 +12,9 @@ function ltrim(str, chr) {
   return str.replace(rgxtrim, '');
 }
 
-jQuery('img[src*="?q="]').each(function(i,e) { alert(jQuery(e).attr('src')); });
+jQuery('img[src*="?q="]').each(function(i,e) { 
+  var src = jQuery(e).attr('src'); 
+  var rgxtrim =  RegExp('/'+'+$');
+  var new_src = src.replace(rgxtrim, '').replace('?q=', 'stores/');
+  jQuery(e).attr('src', new_src);
+});
