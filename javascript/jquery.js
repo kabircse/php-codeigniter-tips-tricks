@@ -14,7 +14,6 @@ function ltrim(str, chr) {
 
 var rgxtrim = new RegExp('/'+'+$');
 jQuery('img[src*="?q="]').each(function(i,e) { 
-  var src = jQuery(e).attr('src');
-  var new_src = src.replace(rgxtrim, '').replace('?q=', 'stores/');
-  jQuery(e).attr('src', new_src);
+  var src = jQuery(e).attr('src').replace(rgxtrim, '').replace('?q=', 'stores/');
+  jQuery(e).attr('src', src);
 });
