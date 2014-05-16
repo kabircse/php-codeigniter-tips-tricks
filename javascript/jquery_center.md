@@ -51,3 +51,6 @@ $( "#log" ).center();
 ------
 [Live demo](http://jsfiddle.net/DerekL/GbDw9/), 
 [github makedown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
+-------------
+[more example about makedown][1]
+[1]:http://markdown-here.com/livedemo.html
