@@ -1,16 +1,14 @@
+**css:
 ```css
 #popup_content {
       width: 100%; height: 100%; position: fixed; top: 0; left: 0;
       z-index: 1000;
       background-color: transparent;
-        background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.7);
     }
-    #popup_wrapper {
-      margin: 0 auto;
-      text-align: center;
-    }
-    .searchContainer { margin: 0 auto; text-align: left;}
+    #popup_wrapper {margin: 0 auto; text-align: center}
 ```
+**javascript:
 ```javascript
 var pop_is_show = false;
   $('#search_popup_link').click(function(e) {
