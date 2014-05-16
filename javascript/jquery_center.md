@@ -1,4 +1,4 @@
-<code>
+```css
 div.container{
     width:300px;
     height:300px;
@@ -16,13 +16,16 @@ div.target{
     border-radius: 10px;
     text-align:center;
 }
+```
 
+```html
 <div class="container">
     <div class="target">1<br>parent</div>
     <div class="target">2<br>window</div>
 </div>
+```
 
-
+```javascript
 jQuery.fn.center = function(parent) {
     if (parent) {
         parent = this.parent();
@@ -38,10 +41,10 @@ return this;
 }
 $("div.target:nth-child(1)").center(true);
 $("div.target:nth-child(2)").center(false);
-//http://jsfiddle.net/DerekL/GbDw9/
 
 $( window ).resize(function() {
 $( "#log" ).center();
 });
+```
 
-</code>
+[Live demo](http://jsfiddle.net/DerekL/GbDw9/)
