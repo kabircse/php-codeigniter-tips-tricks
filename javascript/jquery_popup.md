@@ -1,4 +1,4 @@
-``css
+```css
 #popup_content {
       width: 100%; height: 100%; position: fixed; top: 0; left: 0;
       z-index: 1000;
@@ -10,8 +10,8 @@
       text-align: center;
     }
     .searchContainer { margin: 0 auto; text-align: left;}
-``
-;;;javascript
+```
+```javascript
 var pop_is_show = false;
   $('#search_popup_link').click(function(e) {
     e.preventDefault();
@@ -39,4 +39,5 @@ var pop_is_show = false;
     tb_remove(); pop_is_show = false;
   }
 });
-;;;
+```
+
