@@ -32,20 +32,20 @@ var pop_is_show = false;
     });
   });
   
-  function tb_remove() {
+  function popup_close() {
     $('#popup_content').remove();
   }
   
 	document.body.addEventListener('touchstart', function(e){
     if (pop_is_show && $( e.target ).attr('id') == 'popup_content') {
-      tb_remove(); pop_is_show = false;
+      popup_close(); pop_is_show = false;
     }
         
  }, false);
  
  $( document ).on( "click", function( event ) {
   if ($( event.target ).attr('id') == 'popup_content' && pop_is_show) {
-    tb_remove(); pop_is_show = false;
+    popup_close(); pop_is_show = false;
   }
 });
 ```
