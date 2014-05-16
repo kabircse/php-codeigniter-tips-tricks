@@ -39,4 +39,9 @@ return this;
 $("div.target:nth-child(1)").center(true);
 $("div.target:nth-child(2)").center(false);
 //http://jsfiddle.net/DerekL/GbDw9/
+
+$( window ).resize(function() {
+$( "#log" ).center();
+});
+
 </code>
