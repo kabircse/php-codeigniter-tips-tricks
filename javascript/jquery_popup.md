@@ -1,4 +1,4 @@
-**css:
+_css:_
 ```css
 #popup_content {
       width: 100%; height: 100%; position: fixed; top: 0; left: 0;
@@ -8,7 +8,7 @@
     }
     #popup_wrapper {margin: 0 auto; text-align: center}
 ```
-**javascript:
+_javascript:_
 ```javascript
 var pop_is_show = false;
   $('#search_popup_link').click(function(e) {
@@ -23,6 +23,7 @@ var pop_is_show = false;
       $('#popup_wrapper').center(true);
     });
   });
+  
   function tb_remove() {
     $('#popup_content').remove();
   }
@@ -32,6 +33,7 @@ var pop_is_show = false;
     }
         
  }, false);
+ 
  $( document ).on( "click", function( event ) {
   if ($( event.target ).attr('id') == 'popup_content' && pop_is_show) {
     tb_remove(); pop_is_show = false;
