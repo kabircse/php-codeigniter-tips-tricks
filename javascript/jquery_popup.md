@@ -1,4 +1,4 @@
-_css:_
+**_css:_**
 ```css
 #popup_content {
       width: 100%; height: 100%; position: fixed; top: 0; left: 0;
@@ -8,7 +8,7 @@ _css:_
     }
     #popup_wrapper {margin: 0 auto; text-align: center}
 ```
-_javascript:_
+**_javascript:_**
 ```javascript
 var pop_is_show = false;
   $('#search_popup_link').click(function(e) {
