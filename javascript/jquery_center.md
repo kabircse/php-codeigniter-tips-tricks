@@ -50,8 +50,10 @@ $( "#log" ).center();
 });
 ```
 ------
-[View live demo](http://jsfiddle.net/DerekL/GbDw9/), 
+[View live demo](http://jsfiddle.net/DerekL/GbDw9/)
+[Source][2]
 [Github MarkDown Cheat Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
 -------------
 [More example about MarkDown][1]
 [1]:http://markdown-here.com/livedemo.html
+[2]:http://stackoverflow.com/questions/210717/using-jquery-to-center-a-div-on-the-screen
