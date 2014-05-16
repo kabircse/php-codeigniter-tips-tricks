@@ -50,8 +50,8 @@ $( "#log" ).center();
 });
 ```
 ------
-[Live demo](http://jsfiddle.net/DerekL/GbDw9/), 
-[github makedown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
+[View live demo](http://jsfiddle.net/DerekL/GbDw9/), 
+[Github MarkDown Cheat Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
 -------------
-[more example about makedown][1]
+[More example about MarkDown][1]
 [1]:http://markdown-here.com/livedemo.html
