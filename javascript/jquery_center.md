@@ -1,5 +1,6 @@
 ### jQuery Center Box
 -------------
+
 ```css
 div.container{
     width:300px;
