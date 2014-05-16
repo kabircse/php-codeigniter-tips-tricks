@@ -1,3 +1,4 @@
+### jQuery Center Box
 ```css
 div.container{
     width:300px;
@@ -48,3 +49,4 @@ $( "#log" ).center();
 ```
 
 [Live demo](http://jsfiddle.net/DerekL/GbDw9/)
+[github makedown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
