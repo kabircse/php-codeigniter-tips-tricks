@@ -21,14 +21,16 @@
 ```
 **_javascript:_**
 ```javascript
-var pop_is_show = false;
+	var popup_width = '90%';
+	var pop_is_show = false;
   $('#popup_link').click(function(e) {
     e.preventDefault();
     $('body').append('<div id="popup_content"><div id="popup_wrapper"></div></div>');
     $('#popup_wrapper').html('<div class="loading_div"></div>').center(true);
     $.get($(this).attr('href'), function(content) {
-	  	pop_is_show = true;
+			pop_is_show = true;
       $('#popup_wrapper').html(content).center(true);
+      $('div.searchContainer').width(popup_width);
     });
   });
   
@@ -48,5 +50,19 @@ var pop_is_show = false;
     popup_close(); pop_is_show = false;
   }
 });
+function is_landscape() {
+    return (window.orientation === 90 || window.orientation === -90);
+}
+
+$(document).ready(function() {
+  popup_width = ( is_landscape() ? $( window ).height() : $( window ).width() ) * 0.9;
+    /*$(window).on('orientationchange', function(event) {
+        if ( is_landscape() && pop_is_show ) {
+          var width = $( window ).height() * 0.9;
+          $('div.searchContainer').width(width);
+        }
+    });*/
+});
+
 ```
 
