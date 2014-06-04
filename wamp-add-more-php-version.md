@@ -1,4 +1,4 @@
-Install PHP 5.3.5 on WAMP
+How To Install PHP 5.3.5 on WAMP
 ==========================================
 The latest PHP version provided by WAMP is currently PHP 5.3.5. Continue reading if you want to install a later version.
 
