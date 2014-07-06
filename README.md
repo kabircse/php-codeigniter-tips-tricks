@@ -14,7 +14,7 @@ $this->db->join('TableC AS C', 'A.ID = C.TableAId', 'INNER');
 $this->db->join('TableB AS B', 'B.ID = C.TableBId', 'INNER');
 $result = $this->db->get();
 ```
-CI update data with update without using method where, limit ...
+CI update data with update method without using other methods where, limit ...
 ```php
 $CI->db->update('allocation_tabs', $tab_data, array('id' => $tab_id), 1);
 ```
