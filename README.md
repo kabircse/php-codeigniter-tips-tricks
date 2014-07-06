@@ -18,6 +18,11 @@ CI update data with update method without using other methods where, limit ...
 ```php
 $CI->db->update('allocation_tabs', $tab_data, array('id' => $tab_id), 1);
 ```
+
+CI get data by get_where
+```php
+    $tab_detail = $CI->db->get_where('table_name', array('id' => $_id), 1)->row();
+```
 =========
 
 
