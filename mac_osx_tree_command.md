@@ -18,4 +18,4 @@ done
 
 and enjoy
 
-Of course you may have to create /usr/local/bin
+Of course you may have to create ```/usr/local/bin```
