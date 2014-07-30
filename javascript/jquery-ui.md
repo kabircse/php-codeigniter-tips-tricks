@@ -29,3 +29,5 @@ $(function() {
         });
     }); 
 ```
+jQuery validation
+```http://jqueryvalidation.org/validate```
