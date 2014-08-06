@@ -36,6 +36,6 @@ http://jqueryvalidation.org/validate
 
 jQuery get user selected option text
 ```javascript
-var select_box = $('select#myCombo');
-var selectedText = $(":selected",).text();
+var select_box = $('select#my_select_box');
+var selected_text = $(":selected", select_box).text();
 ```
