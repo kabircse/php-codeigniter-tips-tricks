@@ -23,6 +23,9 @@ CI get data by get_where
 ```php
     $tab_detail = $CI->db->get_where('table_name', array('id' => $_id), 1)->row();
 ```
+**CodeIgniter plugin for Sublime Text**
+https://sublime.wbond.net/packages/CodeIgniter%20Snippets
+http://stackoverflow.com/questions/16235706/sublime-3-set-key-map-for-function-goto-definition
 =========
 
 
