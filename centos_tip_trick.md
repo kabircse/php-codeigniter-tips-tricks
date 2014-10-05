@@ -2,39 +2,40 @@ http://www.shayanderson.com/linux/centos-5-or-centos-6-upgrade-php-to-php-54-or-
 https://webtatic.com/packages/php55/
 
 **This article describes how to upgrade to PHP 5.4 or PHP 5.5 on a CentOS 5 or CentOS 6 server.**
+
 1. First, detect if any PHP packages are installed:
-    ```bash
-    # yum list installed | grep php
+```bash
+# yum list installed | grep php
     ```
 2. If packages are installed remove them, for example:
-    ```bash
-    # yum remove php.x86_64 php-cli.x86_64 php-common.x86_64 php-gd.x86_64 php-ldap.x86_64 php-mbstring.x86_64 php-mcrypt.x86_64 php-mysql.x86_64 php-pdo.x86_64
-    ```
+```bash
+# yum remove php.x86_64 php-cli.x86_64 php-common.x86_64 php-gd.x86_64 php-ldap.x86_64 php-mbstring.x86_64 php-mcrypt.x86_64 php-mysql.x86_64 php-pdo.x86_64
+```
 3. Add PHP 5.4 packages to yum using this command 
    q. for CentOS 5.x
-    ```bash
-    # rpm -Uvh http://mirror.webtatic.com/yum/el5/latest.rpm
-    ```
+```bash
+# rpm -Uvh http://mirror.webtatic.com/yum/el5/latest.rpm
+```
   b. for CentOS 6.x:
-    ```bash
-    # rpm -Uvh http://mirror.webtatic.com/yum/el6/latest.rpm
-    ```
+```bash
+# rpm -Uvh http://mirror.webtatic.com/yum/el6/latest.rpm
+```
     Now, you can check if the new PHP (5.4: php54w or 5.5: php55w) packages are available:
-    ```bash
-    # yum list available | grep php
-    ``` 
+```bash
+# yum list available | grep php
+``` 
     Or, version specific search:
-    ```bash
-    # yum list available | grep php54
-    ```
+```bash
+# yum list available | grep php54
+```
 4. Next, install the new PHP 5.4 or 5.5 packages, for example when installing PHP 5.4 packages I used:
-    ```bash
-    # yum install php54w.x86_64 php54w-cli.x86_64 php54w-common.x86_64 php54w-gd.x86_64 php54w-ldap.x86_64 php54w-mbstring.x86_64 php54w-mcrypt.x86_64 php54w-mysql.x86_64 php54w-pdo.x86_64
-    ```
+```bash
+# yum install php54w.x86_64 php54w-cli.x86_64 php54w-common.x86_64 php54w-gd.x86_64 php54w-ldap.x86_64 php54w-mbstring.x86_64 php54w-mcrypt.x86_64 php54w-mysql.x86_64 php54w-pdo.x86_64
+```
 5. PHP should now be upgraded to the new version, you can verify with the command:
-    ```bash
-    # php -v
-    ```
+```bash
+# php -v
+```
     PHP 5.4.17 (cli) (built: Jul 23 2013 00:02:04)
     Copyright (c) 1997-2013 The PHP Group
     Zend Engine v2.4.0, Copyright (c) 1998-2013 Zend Technologies
