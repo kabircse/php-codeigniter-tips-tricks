@@ -1,8 +1,7 @@
 http://www.shayanderson.com/linux/centos-5-or-centos-6-upgrade-php-to-php-54-or-php-55.htm
 https://webtatic.com/packages/php55/
 
-###This article describes how to upgrade to PHP 5.4 or PHP 5.5 on a CentOS 5 or CentOS 6 server.
-
+**This article describes how to upgrade to PHP 5.4 or PHP 5.5 on a CentOS 5 or CentOS 6 server.**
     First, detect if any PHP packages are installed:
     ```
     # yum list installed | grep php
@@ -40,3 +39,29 @@ https://webtatic.com/packages/php55/
     Zend Engine v2.4.0, Copyright (c) 1998-2013 Zend Technologies
     Finally, restart the Web server: # service httpd restart
     
+
+You can confirm that mysqli is installed, or not, by listing the installed modules. SSH into your Cent OS box, and issue the following command.
+
+```php -m | grep mysqli```
+
+If nothing is returned, then you do not have mysqli.so loaded. Check if you have the shared object is installed on you system.
+
+# Located extension dir
+```php -i | grep extension_dir```
+# List mysql.so in the path returned from the previous command
+``ls -la /usr/lib/php/extensions/no-debug-non-zts-20090626/mysqli.so```
+
+If the mysqli.so is present, and has the permissions -rwxr-x-rx, you'll need to load/enable the mysqli extension in the systems global php.ini file.
+
+# Adjust path to correct php.ini file. 
+# Run `php -i | grep "Configuration File"` to locate, if needed
+# It might be easier to use vi, or nano, for this
+```sudo echo "extension=mysqli.so" >> /etc/php5/php.ini```
+# Restart apache
+```sudo service httpd restart```
+
+Else. If you do not have mysqli.so present in your system. You can install the rpm by following your systems package manager, and repeating the previous php.ini step.
+
+```sudo yum install php5-mysqli```
+
+
