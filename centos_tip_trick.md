@@ -6,25 +6,25 @@ https://webtatic.com/packages/php55/
 1. First, detect if any PHP packages are installed:
 ```bash
 # yum list installed | grep php
-    ```
+```
 2. If packages are installed remove them, for example:
 ```bash
 # yum remove php.x86_64 php-cli.x86_64 php-common.x86_64 php-gd.x86_64 php-ldap.x86_64 php-mbstring.x86_64 php-mcrypt.x86_64 php-mysql.x86_64 php-pdo.x86_64
 ```
 3. Add PHP 5.4 packages to yum using this command 
-   q. for CentOS 5.x
+  for CentOS 5.x
 ```bash
 # rpm -Uvh http://mirror.webtatic.com/yum/el5/latest.rpm
 ```
-  b. for CentOS 6.x:
+ for CentOS 6.x:
 ```bash
 # rpm -Uvh http://mirror.webtatic.com/yum/el6/latest.rpm
 ```
-    Now, you can check if the new PHP (5.4: php54w or 5.5: php55w) packages are available:
+Now, you can check if the new PHP (5.4: php54w or 5.5: php55w) packages are available:
 ```bash
 # yum list available | grep php
 ``` 
-    Or, version specific search:
+Or, version specific search:
 ```bash
 # yum list available | grep php54
 ```
