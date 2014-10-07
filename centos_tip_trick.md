@@ -81,4 +81,29 @@ You can install the rpm by following your systems package manager, and repeating
 sudo yum install php5-mysqli
 ```
 
+### Something with yum
+How to clear the yum cache:
+When a package is downloaded, installed and is removed there is a chance that the package may still be saved/stored in the yum’s cache. So to clean all the cached packages from the enabled repository cache directory, login as root and execute the following:
+
+```yum clean packages```
+
+To purge the old package information completely, execute the following command:
+
+```yum clean headers```
+
+To clean any cached xml metadata from any enabled repository, execute the following
+
+```yum clean metadata```
+
+If you wish to clean all the cached files from any enabled repository at once, execute the
+
+Following command:
+
+```yum clean all```
+
+Vietnamese stupid version
+http://dim.vn/tin-tuc/460-huong-dan-cai-dat-memcached-day-du-tren-centos-6.html
+
+**Finx System hardware information**
+http://www.cyberciti.biz/faq/linux-command-to-find-the-system-configuration-and-hardware-information/
 
