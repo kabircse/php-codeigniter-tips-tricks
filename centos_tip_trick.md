@@ -106,4 +106,5 @@ http://dim.vn/tin-tuc/460-huong-dan-cai-dat-memcached-day-du-tren-centos-6.html
 
 **Finx System hardware information**
 http://www.cyberciti.biz/faq/linux-command-to-find-the-system-configuration-and-hardware-information/
+http://www.cyberciti.biz/faq/linux-display-information-about-installed-hardware/
 
