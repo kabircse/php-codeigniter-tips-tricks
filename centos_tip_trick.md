@@ -40,7 +40,12 @@ Or, version specific search:
     Copyright (c) 1997-2013 The PHP Group
     Zend Engine v2.4.0, Copyright (c) 1998-2013 Zend Technologies
     Finally, restart the Web server: # service httpd restart
-    
+
+Finally, restart the Web server:
+```bash
+# service httpd restart
+```
+
 ==========================
 **You can confirm that mysqli is installed, or not, by listing the installed modules. SSH into your Cent OS box, and issue the following command***
 
