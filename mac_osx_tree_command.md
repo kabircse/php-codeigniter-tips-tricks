@@ -19,3 +19,19 @@ done
 and enjoy
 
 Of course you may have to create ```/usr/local/bin```
+
+
+```
+.
+├── config.dat
+├── data
+│   ├── data1.bin
+│   ├── data2.sql
+│   └── data3.inf
+├── images
+│   ├── background.jpg
+│   ├── icon.gif
+│   └── logo.jpg
+├── program.exe
+└── readme.txt
+```
