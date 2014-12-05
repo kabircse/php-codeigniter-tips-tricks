@@ -1,3 +1,4 @@
+<?php
 //
 // A very simple PHP example that sends a HTTP POST to a remote site
 //
