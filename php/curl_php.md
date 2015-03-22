@@ -43,7 +43,6 @@ curl_setopt($ch, CURLOPT_URL, "http://www.site.com/page/");
 //do stuff with the info with DomDocument() etc
 $html = curl_exec($ch);
 curl_close($ch);
-```
 
 
 //Fetch data from google using cURL example simple demo of using cURL
@@ -59,5 +58,6 @@ $result=curl_exec($cSession);
 curl_close($cSession);
 //step5
 echo $result;
-?>
-- See more at: http://www.startutorial.com/articles/view/php-curl
+
+
+```- See more at: http://www.startutorial.com/articles/view/php-curl
