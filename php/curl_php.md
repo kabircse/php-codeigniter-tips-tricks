@@ -45,7 +45,8 @@ $html = curl_exec($ch);
 curl_close($ch);
 
 
-//Fetch data from google using cURL example simple demo of using cURL
+```Fetch data from google using cURL example simple demo of using cURL
+```
 //step1
 $cSession = curl_init(); 
 //step2
