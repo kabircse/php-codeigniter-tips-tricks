@@ -43,10 +43,13 @@ curl_setopt($ch, CURLOPT_URL, "http://www.site.com/page/");
 //do stuff with the info with DomDocument() etc
 $html = curl_exec($ch);
 curl_close($ch);
+?>
 
 
-```Fetch data from google using cURL example simple demo of using cURL
-```
+
+**Fetch data from google using cURL example simple demo of using cURL**
+
+<?php
 //step1
 $cSession = curl_init(); 
 //step2
