@@ -44,3 +44,20 @@ curl_setopt($ch, CURLOPT_URL, "http://www.site.com/page/");
 $html = curl_exec($ch);
 curl_close($ch);
 ```
+
+
+//Fetch data from google using cURL example simple demo of using cURL
+//step1
+$cSession = curl_init(); 
+//step2
+curl_setopt($cSession,CURLOPT_URL,"http://www.google.com/search?q=curl");
+curl_setopt($cSession,CURLOPT_RETURNTRANSFER,true);
+curl_setopt($cSession,CURLOPT_HEADER, false); 
+//step3
+$result=curl_exec($cSession);
+//step4
+curl_close($cSession);
+//step5
+echo $result;
+?>
+- See more at: http://www.startutorial.com/articles/view/php-curl
