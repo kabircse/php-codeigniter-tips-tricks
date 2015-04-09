@@ -5,6 +5,7 @@ Create an empty file called “php-errors.log”. This file will serve as your s
 Step 2: Add the magic code
 Next, open your site’s root .htaccess file and add the following code:
 **
+
 # PHP error handling for production servers
 
 # disable display of startup errors
