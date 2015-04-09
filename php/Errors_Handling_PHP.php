@@ -1,10 +1,10 @@
-**Error Logging via the HTAccess file
+*/Error Logging via the HTAccess file
 Step 1: Create a log file
 Create an empty file called “php-errors.log”. This file will serve as your site’s PHP error log. Your server will need write access to this file, so make sure to set the appropriate permissions. This file may be placed in any directory, but placing it above the web-accessible root directory of your site is advisable for security reasons. Once this file is created, writable, and in place, take note of its absolute directory path and continue to the final step.
 
 Step 2: Add the magic code
 Next, open your site’s root .htaccess file and add the following code:
-**
+*/
 
 # PHP error handling for production servers
 
@@ -42,7 +42,8 @@ php_value docref_ext 0
 php_value error_log /home/path/public_html/domain/PHP_errors.log
 
 # specify recording of all php errors
-# [see footnote 3] # php_value error_reporting 999999999
+# [see footnote 3] #
+php_value error_reporting 999999999
 php_value error_reporting -1
 
 # disable max error string length
