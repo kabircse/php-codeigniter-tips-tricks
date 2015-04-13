@@ -1,6 +1,6 @@
 <?php
 // capture the start time
-$time = microtime(TRUE);
+$start_time = microtime(TRUE);
 
 // do some stuff
 // ...
