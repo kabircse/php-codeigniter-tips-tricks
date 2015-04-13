@@ -1,12 +1,16 @@
 
 Just use PDO instead of the mysql_* functions.
+
 SQL to create the test table :
+
 CREATE TABLE `test`.`test` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `name` VARCHAR( 255 ) NOT NULL
 ) ENGINE = InnoDB;
+
 Php to insert a row, then a second row which name contain the first one's ID.
 // Connect to the mysql server
+
 $db = new PDO('mysql:host=127.0.0.1;dbname=test;', $user, $pass);
 // Set PDO to raise exceptions when a query fails
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
