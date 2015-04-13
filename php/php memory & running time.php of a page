@@ -1,11 +1,14 @@
 <?php
+// capture the start time
 $time = microtime(TRUE);
+
+// do some stuff
+// ...
+ 
+// display how long the script took
+//// capture the memory used
 $mem = memory_get_usage();
+echo "execution took: ".
+        (microtime(true) - $start_time).
+        " seconds.   Memory Used: ".(memory_get_usage() - $mem) / (1024 * 1024)." . ";
 
-print_r(array(
-
-  'memory' => (memory_get_usage() - $mem) / (1024 * 1024),
-
-  'seconds' => microtime(TRUE) - $time
-
-));
