@@ -1,6 +1,15 @@
+//Mysql driver using process
+$con = mysql_connect("DBhost", "DBuser", "DBpass");
+mysql_select_db("database",$con);
+$result = mysql_query("SELECT * FROM employee");
+$res = mysql_fetch_assoc($result);
+
+//Mysqli  driver using process
+$mysqli = new mysqli("DBhost", "DBuser", "DBpass", "database");
+$result = $mysqli->query("SELECT * FROM employee");
+$res = $result->fetch_assoc();
 
 Just use PDO instead of the mysql_* functions.
-
 SQL to create the test table :
 
 CREATE TABLE `test`.`test` (
