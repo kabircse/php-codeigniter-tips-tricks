@@ -1,0 +1,11 @@
+<?php
+$time = microtime(TRUE);
+$mem = memory_get_usage();
+
+print_r(array(
+
+  'memory' => (memory_get_usage() - $mem) / (1024 * 1024),
+
+  'seconds' => microtime(TRUE) - $time
+
+));
