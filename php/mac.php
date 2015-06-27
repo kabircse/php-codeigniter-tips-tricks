@@ -4,6 +4,12 @@
 <div class="fbbg">
 <p>Your MAc Address is</p>
 <?php
+/*Getting Mac Command: C:\>getmac
+Getting IP Command: ipconfig | find "IPv4"
+or ipconfig /all | find "IP Address"
+or ipconfig /all | find "IPv4"
+*/
+
 // Turn on output buffering
 ob_start();
 //Get the ipconfig details using system commond
