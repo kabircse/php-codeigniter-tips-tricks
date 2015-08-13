@@ -1,0 +1,5 @@
+Use this video for zend 2 installation: https://www.youtube.com/watch?v=ARTv4yWr9Mo
+Or :
+1. git clone this repo to your xamp
+2.composer.phar self-update
+3.composer.phar install
