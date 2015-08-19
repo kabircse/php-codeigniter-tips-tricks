@@ -1,3 +1,5 @@
+<?php
+
 1. array_keys($array)  //takes array keys; array(a=>2,b=>3) to array(0=>a,1=>b);
 2. array_values($array)  //takes array values; array(a=>2,b=>3) to array(0=>2,1=>3);
 3. array_pop($array)  //remove last value from array; array(a=>2,b=>3,c=>4) to array(a=>2,b=>3);
