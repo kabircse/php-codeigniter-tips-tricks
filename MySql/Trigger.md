@@ -54,7 +54,8 @@ TRIGGERING  EXAMPLE:
 		***************************************************************************************
 		
 	/*ac_stock_in*/
-	----------------
+---------------------------------------
+	
 	
 		**After Insert on ac_stock_in**
 		DELIMITER //
@@ -105,7 +106,8 @@ TRIGGERING  EXAMPLE:
 		
 		
 		
-		/*ac_stock_out*/
+	/*ac_stock_out*/
+-----------------------------------------
 		**After Insert on ac_stock_out**
 		DELIMITER //
 		CREATE TRIGGER insert_after_stock_out AFTER insert ON ac_stock_out
